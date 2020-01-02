@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "name": "single-spa-vue-pre-loader",
+  "author": "guochengwei",
+  "description": "pre-loader for single-spa + vue",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/webpack-contrib/css-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webpack-contrib/css-loader.git"
+  },
+  "keywords": [
+    "vue",
+    "single-spa",
+    "pre-loader"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist --copy-files"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "standard-version": "^7.0.1"
+  }
+}
