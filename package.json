@@ -4,6 +4,9 @@
   "author": "guochengwei",
   "description": "pre-loader for single-spa + vue",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "homepage": "https://github.com/webpack-contrib/css-loader",
   "repository": {
     "type": "git",
