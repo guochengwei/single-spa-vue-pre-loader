@@ -7,10 +7,10 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/webpack-contrib/css-loader",
+  "homepage": "https://github.com/guochengwei/single-spa-vue-pre-loader",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webpack-contrib/css-loader.git"
+    "url": "git+https://github.com/guochengwei/single-spa-vue-pre-loader.git"
   },
   "keywords": [
     "vue",
