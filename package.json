@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "single-spa-vue-pre-loader",
   "author": "guochengwei",
   "description": "pre-loader for single-spa + vue",
@@ -19,7 +19,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d dist --copy-files"
+    "build": "babel src -d dist --copy-files",
+    "release": "standard-version"
   },
   "dependencies": {
     "css-loader": "^0.28.11",
