@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "single-spa-vue-pre-loader",
   "author": "guochengwei",
   "description": "pre-loader for single-spa + vue",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "css-loader": "^0.28.11",
+    "loader-utils": "^1.2.3",
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
