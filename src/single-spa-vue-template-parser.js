@@ -37,7 +37,7 @@ function parseStartTag (html) {
   }
 }
 
-const classFunctionCodeFrame =
+/*const classFunctionCodeFrame =
   `const classFunction = (value) => {
       if (Array.isArray(value)) {
         return value.map(item => $style[item])
@@ -53,7 +53,7 @@ const classFunctionCodeFrame =
       } else {
         return [$style[value]]
       }
-    }`
+    }`*/
 module.exports = function (context) {
   const stringBuffer = []
   let last = 0
@@ -74,39 +74,23 @@ module.exports = function (context) {
 
     if (dynamicClass) {
       stringBuffer.push(context.slice(last, last + dynamicClass.start))
-      const codeFrame = staticClassList ?
-        ` :class="(() => {
-            ${classFunctionCodeFrame}
-            return classFunction(${dynamicClass[3]}).concat(classFunction(${staticClassList}))
-          })()"` :
-        ` :class="(() => {
-            ${classFunctionCodeFrame}
-            return classFunction(${dynamicClass[3]})
-          })()"`
+      const codeFrame = staticClassList
+        ? ` :class="$classWrapper(${dynamicClass[3]}).concat($classWrapper(${staticClassList}))"`
+        : ` :class="$classWrapper(${dynamicClass[3]})"`
       stringBuffer.push(codeFrame)
       stringBuffer.push(context.slice(last + dynamicClass.end, last + startTagMatch.end))
-    }
-
-    if (!dynamicClass && staticClassList) {
+    } else if (staticClassList) {
       if (startTagMatch.unarySlash) {
         stringBuffer.push(context.slice(last, last + startTagMatch.end - 2))
-      } else {
-        stringBuffer.push(context.slice(last, last + startTagMatch.end - 1))
-      }
-      const codeFrame =
-        ` :class="(() => {
-          ${classFunctionCodeFrame}
-          return classFunction(${staticClassList})
-        })()"`
-      stringBuffer.push(codeFrame)
-      if (startTagMatch.unarySlash) {
+        stringBuffer.push(` :class="$classWrapper(${staticClassList})"`)
         stringBuffer.push('/>')
       } else {
+        stringBuffer.push(context.slice(last, last + startTagMatch.end - 1))
+        stringBuffer.push(` :class="$classWrapper(${staticClassList})"`)
         stringBuffer.push('>')
       }
-    }
 
-    if (!dynamicClass && !staticClassList) {
+    } else {
       stringBuffer.push(context.slice(last, last + startTagMatch.end))
     }
     last += startTagMatch.end
