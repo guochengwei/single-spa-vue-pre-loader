@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "name": "single-spa-vue-pre-loader",
   "author": "guochengwei",
   "description": "pre-loader for single-spa + vue",
@@ -22,8 +22,7 @@
     "build": "babel src -d dist --copy-files",
     "release": "standard-version"
   },
-  "dependencies": {
-    "vue-loader": "^15.8.3",
+  "peerDependencies": {
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
