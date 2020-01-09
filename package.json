@@ -1,5 +1,5 @@
 {
-  "version": "1.0.8",
+  "version": "2.0.0",
   "name": "single-spa-vue-pre-loader",
   "author": "guochengwei",
   "description": "pre-loader for single-spa + vue",
